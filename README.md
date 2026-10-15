@@ -1,7 +1,7 @@
 # mba_marketing_automation
 
 Reglas de inscripcion configurables para [`automation_oca`](https://github.com/OCA/automation)
-(Odoo 18 CE). Modular y agnostico: cada pieza es un addon pequeño que se enchufa a otro.
+(Odoo 19 CE, rama 19.0). Modular y agnostico: cada pieza es un addon pequeño que se enchufa a otro.
 
 ```
 automation_oca  (OCA)
@@ -23,7 +23,16 @@ mba_ma_inactivity_account    fuente: facturas de cliente publicadas (auto_instal
   agrega su valor con `selection_add` a `inactivity_source` y define
   `_inactivity_rows_<fuente>(company_ids)` -> `[(partner_id, ultima_fecha, cantidad)]`.
 
-## Estado
+## Estado (rama 19.0)
+
+**Bloqueado:** `automation_oca` todavia no existe en la rama 19.0 de OCA/automation (la rama solo
+tiene la estructura inicial). Esta rama deja los addons con version 19.0 pero **no se pueden
+instalar** hasta que `automation_oca` este migrado a 19. Pendiente: migrar `automation_oca` a 19
+(fork de OCA/automation + PR) y probar en una instancia Odoo 19.
+
+La funcionalidad es la misma de la rama 18.0, aun sin adaptar ni probar en 19.
+
+## Estado (heredado de 18.0)
 
 Escrito contra el codigo de OCA/automation 18.0 y Odoo 18 CE. Verificado: sintaxis Python/XML,
 que los `xpath` de las vistas encuentran un unico nodo en el formulario real de `automation_oca`,
