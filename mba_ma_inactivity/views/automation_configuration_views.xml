@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="automation_configuration_form_view_inherit_mba_inactivity" model="ir.ui.view">
+        <field name="name">automation.configuration.form.mba.inactivity</field>
+        <field name="model">automation.configuration</field>
+        <field name="inherit_id" ref="automation_oca.automation_configuration_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='automation_step_ids']" position="before">
+                <group string="Regla: cliente inactivo"
+                       invisible="enrollment_type != 'inactivity'">
+                    <field name="inactivity_source" readonly="state != 'draft'"
+                           required="enrollment_type == 'inactivity'"/>
+                    <field name="inactivity_days" readonly="state != 'draft'"/>
+                    <field name="inactivity_lookback_days" readonly="state != 'draft'"/>
+                    <field name="inactivity_min_purchases" readonly="state != 'draft'"/>
+                    <field name="inactivity_require_email" readonly="state != 'draft'"/>
+                    <field name="inactivity_extra_domain" widget="domain"
+                           options="{'model': 'model', 'foldable': True}"
+                           readonly="state != 'draft'"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

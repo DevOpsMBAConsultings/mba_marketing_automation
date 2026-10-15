@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="automation_configuration_form_view_inherit_mba_enrollment" model="ir.ui.view">
+        <field name="name">automation.configuration.form.mba.enrollment</field>
+        <field name="model">automation.configuration</field>
+        <field name="inherit_id" ref="automation_oca.automation_configuration_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='model_id']" position="before">
+                <field name="enrollment_type" widget="radio" options="{'horizontal': True}"
+                       readonly="state != 'draft'"/>
+            </xpath>
+            <!-- El filtro manual solo aplica al tipo "Filtro" -->
+            <xpath expr="//label[@for='filter_id']" position="attributes">
+                <attribute name="invisible">enrollment_type != 'filter'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='filter_id']/ancestor::div[hasclass('container')][1]" position="attributes">
+                <attribute name="invisible">enrollment_type != 'filter'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='domain'][@invisible='not filter_id']" position="attributes">
+                <attribute name="invisible">not filter_id or enrollment_type != 'filter'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='editable_domain']" position="attributes">
+                <attribute name="invisible">filter_id or enrollment_type != 'filter'</attribute>
+            </xpath>
+            <!-- Conteo en vivo, comun a todas las reglas -->
+            <xpath expr="//field[@name='automation_step_ids']" position="before">
+                <group invisible="not model_id">
+                    <label for="enrollment_count" string="Cumplen la regla"/>
+                    <div>
+                        <field name="enrollment_count" class="oe_inline"/> registro(s)
+                        <button name="action_view_enrollment_candidates" type="object"
+                                class="btn btn-link" icon="fa-arrow-right" string="Ver"/>
+                    </div>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
