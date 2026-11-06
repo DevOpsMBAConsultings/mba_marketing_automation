@@ -8,9 +8,13 @@ automation_oca  (OCA)
       |
 mba_ma_enrollment            nucleo: tipo de inscripcion extensible + conteo en vivo.
       |                      No conoce clientes, facturas ni ventas.
-mba_ma_inactivity            regla "cliente inactivo": N dias sin comprar. Sin fuente propia.
+      +--> mba_ma_inactivity            regla "cliente inactivo": N dias sin comprar.
+      |          |
+      |          +--> mba_ma_inactivity_account    fuente: facturas publicadas (auto_install con account).
       |
-mba_ma_inactivity_account    fuente: facturas de cliente publicadas (auto_install con account).
+      +--> mba_ma_product_crosssell     regla "venta cruzada / target": inclusion o exclusion por producto/categoria.
+                 |
+                 +--> mba_ma_product_crosssell_account  fuente: facturas publicadas (auto_install con account).
 ```
 
 ## Como se extiende

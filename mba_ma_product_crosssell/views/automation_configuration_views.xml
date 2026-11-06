@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="automation_configuration_form_view_inherit_mba_crosssell" model="ir.ui.view">
+        <field name="name">automation.configuration.form.mba.crosssell</field>
+        <field name="model">automation.configuration</field>
+        <field name="inherit_id" ref="automation_oca.automation_configuration_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='automation_step_ids']" position="before">
+                <group string="Regla: venta cruzada y target de productos"
+                       invisible="enrollment_type != 'product_crosssell'">
+                    <field name="crosssell_source" readonly="state != 'draft'"
+                           required="enrollment_type == 'product_crosssell'"/>
+                    <field name="crosssell_mode" widget="radio" readonly="state != 'draft'"/>
+                    <field name="crosssell_filter_type" widget="radio" options="{'horizontal': True}"
+                           readonly="state != 'draft'"/>
+                    <field name="crosssell_product_ids" widget="many2many_tags"
+                           invisible="crosssell_filter_type != 'product'"
+                           required="enrollment_type == 'product_crosssell' and crosssell_filter_type == 'product'"
+                           readonly="state != 'draft'"/>
+                    <field name="crosssell_category_ids" widget="many2many_tags"
+                           invisible="crosssell_filter_type != 'category'"
+                           required="enrollment_type == 'product_crosssell' and crosssell_filter_type == 'category'"
+                           readonly="state != 'draft'"/>
+                    <field name="crosssell_min_purchases" readonly="state != 'draft'"/>
+                    <field name="crosssell_lookback_days" readonly="state != 'draft'"/>
+                    <field name="crosssell_require_email" readonly="state != 'draft'"/>
+                    <field name="crosssell_extra_domain" widget="domain"
+                           options="{'model': 'model', 'foldable': True}"
+                           readonly="state != 'draft'"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
