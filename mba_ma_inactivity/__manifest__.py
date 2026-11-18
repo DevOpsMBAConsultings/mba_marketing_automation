@@ -1,6 +1,6 @@
 {
-    'name': 'MBA MA - Regla de cliente inactivo',
-    'version': '18.0.1.0.0',
+    'name': 'MBA MA - Regla de cliente inactivo (MBA Consultings)',
+    'version': '18.0.1.0.1',
     'category': 'Marketing/Automation',
     'summary': 'Inscribe empresas que ya compraron y llevan N dias sin comprar (fuente enchufable)',
     'description': """

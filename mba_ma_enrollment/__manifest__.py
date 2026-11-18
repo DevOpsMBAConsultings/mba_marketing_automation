@@ -1,6 +1,6 @@
 {
-    'name': 'MBA MA - Enrollment (nucleo)',
-    'version': '18.0.1.0.0',
+    'name': 'MBA MA - Enrollment (nucleo) (MBA Consultings)',
+    'version': '18.0.1.0.1',
     'category': 'Marketing/Automation',
     'summary': 'Tipos de inscripcion enchufables para automation_oca, con conteo en vivo',
     'description': """

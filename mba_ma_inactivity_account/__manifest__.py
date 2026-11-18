@@ -1,6 +1,6 @@
 {
-    'name': 'MBA MA - Fuente de compras: facturas',
-    'version': '18.0.1.0.0',
+    'name': 'MBA MA - Fuente de compras: facturas (MBA Consultings)',
+    'version': '18.0.1.0.1',
     'category': 'Marketing/Automation',
     'summary': 'Fuente de la regla de cliente inactivo basada en facturas de cliente publicadas',
     'author': 'MBA Consultings',

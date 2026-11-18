@@ -1,6 +1,6 @@
 {
-    'name': 'MBA MA - Regla de venta cruzada / Target de productos',
-    'version': '18.0.1.0.0',
+    'name': 'MBA MA - Regla de venta cruzada / Target de productos (MBA Consultings)',
+    'version': '18.0.1.0.1',
     'category': 'Marketing/Automation',
     'summary': 'Inscribe clientes que compraron o no compraron productos/categorias especificas',
     'description': """
@@ -23,3 +23,4 @@ La fuente de compras la aporta otro modulo (ej. facturas, ventas, TPV):
     'installable': True,
     'application': False,
 }
+
